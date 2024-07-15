@@ -1,0 +1,44 @@
+<div class="user-container">
+<div class="header-bar mx-auto">
+  <!-- <button class="d-inline mr-4" >
+    Back
+  </button> -->
+  <a class="btn btn-outline-secondary rounded-circle" routerLink="/">
+    <i class="bi bi-arrow-left"></i> <!-- Assuming you are using Bootstrap Icons -->
+  </a>
+  <h2 class="d-inline ml-4">{{ isEdit ? 'Edit User' : 'Add User' }}</h2>
+</div>
+  <hr />
+  <form (ngSubmit)="onSubmit()" class="mt-4">
+    <div class="form-group row mb-3">
+      <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control mb-2" id="firstName" name="firstName" [(ngModel)]="usersData.firstName" required>
+      </div>
+    </div>
+    <div class="form-group row mb-3">
+      <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control mb-2" id="lastName" name="lastName" [(ngModel)]="usersData.lastName" required>
+      </div>
+    </div>
+    <div class="form-group row mb-3">
+      <label for="age" class="col-sm-2 col-form-label">Age</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control mb-2" id="age" name="age" [(ngModel)]="usersData.age" required>
+      </div>
+    </div>
+    <div class="form-group row mb-3">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control mb-2" id="email" name="email" [(ngModel)]="usersData.email" required email>
+      </div>
+    </div>
+    
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" class="btn btn-primary" [disabled]="!usersData.firstName || !usersData.lastName || !usersData.email">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
