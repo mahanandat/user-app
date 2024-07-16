@@ -3,7 +3,13 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+     "baseUrl": "./src",
+    "types": [],
+    "paths": {
+      "@ng-bootstrap/ng-bootstrap": [
+        "node_modules/@ng-bootstrap/ng-bootstrap"
+      ]
+    }
   },
   "files": [
     "src/main.ts"

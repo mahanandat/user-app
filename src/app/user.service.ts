@@ -22,9 +22,9 @@ export class UserService {
     return this.http.post(`${this.apiConstants.baseUrl}/${this.apiConstants.apiUrls.urlGetUser}/${this.apiConstants.apiUrls.urlAddUser}`, postData);
   }
 
-  // updatePost(id: number, postData: { title: string; body: string; userId: number }): Observable<any> {
-  //   return this.http.put(`${this.apiUrl}/${id}`, postData);
-  // }
+  updatePost(id: string | null, postData:User): Observable<any> {
+    return this.http.put(`${this.apiConstants.baseUrl}/${this.apiConstants.apiUrls.urlGetUser}/${id}`, postData);
+  }
 
   // deletePost(id: number): Observable<any> {
   //   return this.http.delete(`${this.apiUrl}/${id}`);

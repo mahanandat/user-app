@@ -8,11 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiConstants } from './constants/apiConstnats';
 import { UserAddEditComponent } from './user-add-edit/user-add-edit.component';
 import { FormsModule } from '@angular/forms';
+import { MessageModalComponent } from './commonComponent/message-modal/message-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    UserAddEditComponent
+    UserAddEditComponent,
+    MessageModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,25 +1,27 @@
 <div class="user-container">
-<div class="header-bar mx-auto">
-  <!-- <button class="d-inline mr-4" >
-    Back
-  </button> -->
-  <a class="btn btn-outline-secondary rounded-circle" routerLink="/">
-    <i class="bi bi-arrow-left"></i> <!-- Assuming you are using Bootstrap Icons -->
-  </a>
-  <h2 class="d-inline ml-4">{{ isEdit ? 'Edit User' : 'Add User' }}</h2>
-</div>
+  <app-message-modal *ngIf="showModal" [title]="'Example Modal'" [message]="'This is a simple Bootstrap modal example.'"></app-message-modal>
+  <div class="header-bar mx-auto">
+    <span class="mr-3 pr-3 mb-3">
+      <a class="btn btn-outline-secondary rounded-circle mr-3" routerLink="/">
+        BACK <!-- Assuming you are using Bootstrap Icons -->
+      </a>
+    </span>
+    <h2 class="d-inline ml-3">{{ isEdit ? 'Edit User' : 'Add User' }}</h2>
+  </div>
   <hr />
-  <form (ngSubmit)="onSubmit()" class="mt-4">
+  <form (ngSubmit)="onSubmit(id, usersData)" class="mt-4">
     <div class="form-group row mb-3">
       <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control mb-2" id="firstName" name="firstName" [(ngModel)]="usersData.firstName" required>
+        <input type="text" class="form-control mb-2" id="firstName" name="firstName" [(ngModel)]="usersData.firstName"
+          required>
       </div>
     </div>
     <div class="form-group row mb-3">
       <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control mb-2" id="lastName" name="lastName" [(ngModel)]="usersData.lastName" required>
+        <input type="text" class="form-control mb-2" id="lastName" name="lastName" [(ngModel)]="usersData.lastName"
+          required>
       </div>
     </div>
     <div class="form-group row mb-3">
@@ -31,13 +33,15 @@
     <div class="form-group row mb-3">
       <label for="email" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control mb-2" id="email" name="email" [(ngModel)]="usersData.email" required email>
+        <input type="email" class="form-control mb-2" id="email" name="email" [(ngModel)]="usersData.email" required
+          email>
       </div>
     </div>
-    
+
     <div class="form-group row">
       <div class="offset-sm-2 col-sm-10">
-        <button type="submit" class="btn btn-primary" [disabled]="!usersData.firstName || !usersData.lastName || !usersData.email">Submit</button>
+        <button type="submit" class="btn btn-primary"
+          [disabled]="!usersData.firstName || !usersData.lastName || !usersData.email">Submit</button>
       </div>
     </div>
   </form>
